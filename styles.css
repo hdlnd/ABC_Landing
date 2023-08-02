@@ -1,0 +1,66 @@
+body, html {
+    height: 100%;
+    width:100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial, sans-serif;
+  }
+  
+  body {
+    background-image: url('abc_background_image.jpg');
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  
+  .logo {
+    margin-bottom: 20px;
+  }
+  
+  .logo svg {
+    width: 150px; /* Set the desired width of the SVG */
+    height: auto; /* Let the height adjust proportionally */
+  }
+  
+  .signup-form {
+    padding: 20px;
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  /* Additional styles to make the form look better, you can customize this as needed */
+.form-group {
+    display: flex;
+    justify-content: center; /* Center the input and button within the form-group */
+  }
+  
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+    margin: 0 20px; /* Add left and right margin */
+    color: #f7f4ec;
+    font-family: 'Poppins', Arial, sans-serif; /* Use Poppins font for footer text */
+    font-weight: 300;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+  }
+  
+  .footer-center {
+    display: block;
+    width: 100%;
+  }
+  
+  
