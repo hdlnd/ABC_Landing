@@ -1,14 +1,20 @@
 @font-face {
-    font-family: "HelveticaNeueLTPro-Lt";
-    src: url("/Users/olivercabell/Library/Fonts/HelveticaNeueLTPro-Lt.otf");
+    font-family: 'Helvetica Neue LT Pro';
+    src: url('fonts/HelveticaNeueLTPro-Lt.woff2') format('woff2'),
+        url('fonts/HelveticaNeueLTPro-Lt.woff') format('woff'),
+        url('fonts/HelveticaNeueLTPro-Lt.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
 }
+
 
 body {
     margin: 0;
     padding: 0;
     overflow-x: hidden; /* Disable horizontal scrolling */
     background-color: black;
-    font-family: "HelveticaNeueLTPro-Lt";
+    font-family: "Helvetica Neue LT Pro";
     font-size: 10px;
     text-transform: uppercase;
 }
