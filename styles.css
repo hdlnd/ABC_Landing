@@ -1,66 +1,181 @@
-body, html {
-    height: 100%;
-    width:100%;
+@font-face {
+    font-family: "HelveticaNeueLTPro-Lt";
+    src: url("/Users/olivercabell/Library/Fonts/HelveticaNeueLTPro-Lt.otf");
+}
+
+body {
     margin: 0;
     padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: Arial, sans-serif;
+    overflow-x: hidden; /* Disable horizontal scrolling */
+    background-color: black;
+    font-family: "HelveticaNeueLTPro-Lt";
+    font-size: 10px;
+    text-transform: uppercase;
+}
+
+footer {
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-basis: auto;
+    background: #ccc;
+    padding: 5px;
   }
   
-  body {
-    background-image: url('abc_background_image.jpg');
-    background-size: cover;
-    background-position: center;
+  main {
+    flex-grow: 1;
+    flex-shrink: 0;
+    flex-basis: auto;
   }
-  
-  .container {
+
+  a {
+    color: #2D2926;
+    text-align: left;
+    text-decoration: none;
+  }
+
+  a:hover {
+    opacity: .7;
+  }
+
+.content {
+    opacity: 0; /* Initially set the logo to be invisible */
+    animation: fadeIn 1s ease 1.5s forwards; /* Use an animation named "fadeIn" */
+}
+
+.image-container {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-  }
-  
-  .logo {
-    margin-bottom: 20px;
-  }
-  
-  .logo svg {
-    width: 150px; /* Set the desired width of the SVG */
-    height: auto; /* Let the height adjust proportionally */
-  }
-  
-  .signup-form {
-    padding: 20px;
-    width: 100%;
-    max-width: 400px;
-  }
-  
-  /* Additional styles to make the form look better, you can customize this as needed */
-.form-group {
-    display: flex;
-    justify-content: center; /* Center the input and button within the form-group */
-  }
-  
+    width: 100vw;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
 
+.cover-image {
+    width: auto;
+    object-fit: cover; /* The first image uses cover */
+    object-position: 50% 50%; /* You can adjust this as needed */
+    height: 100vh;
+}
+
+
+/* Lazy loading for subsequent images */
+.secondary-image {
+    object-fit: cover; /* Subsequent images use contain */
+    object-position: center center;
+    height: 75vh;
+    loading: lazy;
+    z-index: 2;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0; /* Start with opacity 0 */
+    }
+    100% {
+        opacity: 1; /* End with opacity 1, fully visible */
+}
+}
+
+/* Hide Desktop Logo on Mobile */
+#logo-desktop {
+    display: none;
+}
+
+/* Show Mobile Logo on Mobile */
+#logo-mobile {
+    display: block;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.5s; /* Add a smooth transition for the logo */
+    opacity: 0; /* Initially set the logo to be invisible */
+    animation: fadeIn 1s ease .5s forwards; /* Use an animation named "fadeIn" */
+    z-index: 2;
+    width: 63.67vw; /* Set the logo width for mobile devices */
+}
+
+.remove #logo-mobile {
+    display: none;
+}
+
+footer {
+    padding: 0;
+}
 .footer {
     display: flex;
-    justify-content: space-between;
-    padding: 10px 20px;
-    margin: 0 20px; /* Add left and right margin */
-    color: #f7f4ec;
-    font-family: 'Poppins', Arial, sans-serif; /* Use Poppins font for footer text */
-    font-weight: 300;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-  }
-  
-  .footer-center {
+    flex-wrap: wrap;
+    background-color: #E5E5DB;
+    color: #2D2926;
+}
+
+.column {
+    flex: 0 0 100%;
+    max-width: 100%;
+}
+
+.inner-column {
+    padding: 18px;
+}
+
+.footer-logo {
+    text-align: left;
+    width: 50%;
+    height: auto;
+
+}
+
+.footer-ul {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+    column-count: 2; /* Start with one column */
+    column-gap: 0; /* No gap between columns */
+    margin: 0;
+}
+
+ul li {
+    margin-bottom: 2px; /* Add spacing between list items */
+}
+
+form-abc {
+    border-bottom: #2D2926;
+    border-width: thin;
+}
+
+@media (min-width: 768px) {
+    .cover-image {
+        width: 100%; /* Adjust the width for larger viewports */
+    }
+    .secondary-image {
+        height: 100vh;
+    }
+    /* Mobile Logo */
+    #logo-mobile {
+        display: none;
+    }
+
+    /* Desktop Logo */
+    #logo-desktop{
     display: block;
-    width: 100%;
-  }
-  
-  
+    position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        transition: opacity 0.5s; /* Add a smooth transition for the logo */
+        opacity: 0; /* Initially set the logo to be invisible */
+        animation: fadeIn 1s ease .5s forwards; /* Use an animation named "fadeIn" */
+        z-index: 2;
+        width: 66.67vw;
+    }
+
+    .remove #logo-desktop {
+        display: none;
+    }
+
+    .column {
+        flex: 0 0 33.3333%;
+        overflow: hidden;
+        max-width: 33.3333%;
+    
+    }
+}
